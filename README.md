@@ -1,2 +1,0 @@
-# AngularTodoDemo
-Created with CodeSandbox

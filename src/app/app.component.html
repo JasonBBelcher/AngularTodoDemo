@@ -1,0 +1,43 @@
+<div class="container">
+  <header>
+    <h1>Angular Todo Demo</h1>
+  </header>
+
+  <nav class="add-todo">
+    <input
+      #inputvalue
+      (keyup.enter)="addTodo(inputvalue)"
+      type="text"
+      placeholder="Add a todo"
+    />
+    <button (click)="addTodo(inputvalue)">Add Todo</button>
+    <input
+      (keyup)="filterSearch($event.target.value)"
+      placeholder="search your todos"
+      type="text"
+    />
+    <button (click)="clearTodos()">Clear</button>
+  </nav>
+
+  <section>
+    <ul>
+      <li *ngFor="let todo of todos">
+        <p class="todo-text" [class.completed]="todo.completed">
+          {{todo.text}}
+        </p>
+        <span class="operators" (click)="changePriority('+', todo)">+</span>
+        <span class="operators" (click)="changePriority('-', todo)">-</span>
+        <p class="priority">priority: {{todo.priority}}</p>
+
+        <button (click)="removeTodo(todo.id)">Remove</button>
+        <button (click)="toggleComplete(todo)">Completed</button>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>
+      Find me at my blog <a href="https://jasonbelcher.dev">jasonbelcher.dev</a>
+    </p>
+  </footer>
+</div>
